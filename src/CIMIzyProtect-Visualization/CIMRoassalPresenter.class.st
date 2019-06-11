@@ -5,6 +5,6 @@ Class {
 }
 
 { #category : #drawing }
-CIMRoassalPresenter >> draw [
+CIMRoassalPresenter >> draw: aCollection [
 	^ self subclassResponsibility
 ]

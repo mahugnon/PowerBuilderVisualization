@@ -5,13 +5,13 @@ Class {
 }
 
 { #category : #drawing }
-FunctionsComplexity >> draw [
+FunctionsComplexity >> draw: aCollection [
 	| lb b |
 	b := RTMondrian new.
 	b shape rectangle
 		width: [ :f | f variables size ];
 		height: [ :f | f numberOfLinesOfCode / 4 ].
-	b nodes: self.
+	b nodes: aCollection.
 	"b edges connectFrom: #superclass."
 	b layout tree.
 	b normalizer
