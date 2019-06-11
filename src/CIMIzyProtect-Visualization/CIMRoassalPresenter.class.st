@@ -1,0 +1,10 @@
+Class {
+	#name : #CIMRoassalPresenter,
+	#superclass : #Object,
+	#category : #'CIMIzyProtect-Visualization'
+}
+
+{ #category : #drawing }
+CIMRoassalPresenter >> draw [
+	^ self subclassResponsibility
+]
