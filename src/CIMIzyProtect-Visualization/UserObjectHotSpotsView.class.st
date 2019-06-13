@@ -15,7 +15,10 @@ UserObjectHotSpotsView >> draw: aCollection [
 		height: [ :cls | cls numberOfMethods ];
 		color: Color black) elementsOn: aCollection.
 	aView addAll: es.
-	es @ CIMRTViewSouceCode @ RTPopup @ RTDraggable.
+	es @ CIMRTViewSouceCode @(RTPopup
+				text: [ :elt | 
+					  elt belongsTo name , '->'
+						, elt name ]) @ RTDraggable.
 	RTEdgeBuilder new
 		elements: es;
 		view: aView.
