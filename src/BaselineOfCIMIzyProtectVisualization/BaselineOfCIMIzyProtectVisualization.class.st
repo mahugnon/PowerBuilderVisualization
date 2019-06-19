@@ -16,7 +16,7 @@ BaselineOfCIMIzyProtectVisualization >> baseline: spec [
 			"Packages "
 			spec
 				package: 'CIMIzyProtect-Visualization'
-				with: [ spec requires: #('PowerBuilder-Parser-Visitor' 'DataFrame') ] ]
+				with: [ spec requires: #('PowerBuilderParser' 'DataFrame') ] ]
 ]
 
 { #category : #baselines }
