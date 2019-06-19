@@ -6,6 +6,7 @@ Class {
 
 { #category : #baselines }
 BaselineOfCIMIzyProtectVisualization >> baseline: spec [
+	<baseline>
 	spec
 		for: #common
 		do: [ "Dependencies"
