@@ -27,7 +27,7 @@ CommandLineRunner >> activate [
 
 { #category : #activation }
 CommandLineRunner >> generateMooseModel: aFolder [
-	(PWBFamixImporter importFromFolder: aFolder)
+	(PWBFamixImporter importInOnePassFromFolder:  aFolder)
 		name: aFolder asFileReference basename , 'MooseModel';
 		install
 ]
