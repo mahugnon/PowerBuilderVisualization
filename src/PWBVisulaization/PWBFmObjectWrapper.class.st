@@ -6,10 +6,10 @@ Class {
 
 { #category : #testing }
 PWBFmObjectWrapper class >> isWrapperOf: aFmStClass [
-	^ FamixPWBMenuObject subclasses includes: aFmStClass class
+	^ FamixPWBmajorObject subclasses includes: aFmStClass class
 ]
 
 { #category : #accessing }
 PWBFmObjectWrapper >> content [
-	^ mooseEntity
+	^ {}
 ]

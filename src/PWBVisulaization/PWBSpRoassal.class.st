@@ -19,6 +19,11 @@ PWBSpRoassal class >> defaultSpec [
 PWBSpRoassal >> buildRoassalViewOn: v [
 	| sb eb |
 	sb := RSShapeBuilder circle
+		color: [ :node | 
+			"self halt."
+			((model mainTreeFocus includes: node) or: model mainTreeFocus = node)
+				ifTrue: [ Color green ]
+				ifFalse: [ Color gray ] ];
 		interactionDo: [ :i | 
 			i
 				draggable;
