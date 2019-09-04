@@ -43,7 +43,7 @@ PWBSpPresenter >> buildRoassalViewOn: v [
 			i
 				draggable;
 				popup ].
-	v addAll: (sb elementsOn: model flatten).
+	v addAll: (sb elementsOn: model mooseModel flatten).
 	eb := RSEdgeBuilder line.
 	eb
 		view: v;
@@ -58,20 +58,23 @@ PWBSpPresenter >> buildRoassalViewOn: v [
 
 { #category : #initialization }
 PWBSpPresenter >> initializeWidgets [
+	roassalView := self instantiate: PWBSpRoassal.
+	roassalView model: model.
 	mainTree := self newTreeTable
 		addColumn: (SpStringTableColumn evaluated: #name);
-		roots: model;
-		children: [ :node | 
-			self halt.
-			(PWAbstractWrapper wrap: node) content ];
+		roots: model mooseModel;
+		children: [ :node | (PWAbstractWrapper wrap: node) content ];
 		beResizable;
 		activateOnDoubleClick;
-		yourself.
-	roassalView := self instantiate: RoassalPresenter.
-	roassalView script: [ :view | self buildRoassalViewOn: view ]
+		whenSelectionChangedDo:
+				[ :selection | model mainTreeFocus: (PWAbstractWrapper wrap: selection selectedItem) ];
+		yourself
 ]
 
 { #category : #'accessing model' }
 PWBSpPresenter >> setModelBeforeInitialization: aMooseGroup [
-	model := aMooseGroup
+	model := PWBModel new
+		mooseModel: aMooseGroup;
+		yourself.
+	model subscribeToRoassaViewChannel: self
 ]
